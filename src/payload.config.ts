@@ -5,13 +5,31 @@ import path from 'path'
 import { buildConfig } from 'payload/config'
 // import sharp from 'sharp'
 import { fileURLToPath } from 'url'
-
 import { Users } from './collections/users'
 import { Pages } from './collections/pages'
 import { Media } from './collections/media'
+import { s3Storage, type S3StorageOptions } from '@payloadcms/storage-s3'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
+
+const s3StorageOptions: S3StorageOptions = {
+  collections: {
+    [Media.slug]: {
+      prefix: 'media',
+    },
+  },
+  bucket: String(process.env.S3_BUCKET),
+  config: {
+    forcePathStyle: true,
+    credentials: {
+      accessKeyId: String(process.env.S3_ACCESS_KEY_ID),
+      secretAccessKey: String(process.env.S3_SECRET_ACCESS_KEY),
+    },
+    region: process.env.S3_REGION,
+    endpoint: process.env.S3_ENDPOINT,
+  },
+}
 
 export default buildConfig({
   admin: {
@@ -29,6 +47,7 @@ export default buildConfig({
       connectionString: process.env.DATABASE_URI || '',
     },
   }),
+  plugins: [s3Storage(s3StorageOptions)],
 
   // Sharp is now an optional dependency -
   // if you want to resize images, crop, set focal point, etc.
