@@ -7,13 +7,8 @@ export const HalfImageCard: Block = {
     singular: 'Half image card',
     plural: 'Half image cards',
   },
+  interfaceName: 'HalfImageCard',
   fields: [
-    {
-      name: 'internalName',
-      label: 'Internal name',
-      type: 'text',
-      required: true,
-    },
     {
       name: 'title',
       label: 'Title',
@@ -45,12 +40,6 @@ export const HalfImageCard: Block = {
       type: 'blocks',
       maxRows: 1,
       blocks: [CtaButton],
-    },
-    {
-      name: 'content',
-      label: 'Content',
-      type: 'blocks',
-      blocks: [],
     },
   ],
 }

@@ -6,13 +6,8 @@ export const CtaButton: Block = {
     singular: 'CTA button',
     plural: 'CTA buttons',
   },
+  interfaceName: 'CtaButton',
   fields: [
-    {
-      name: 'internalName',
-      label: 'Internal name',
-      type: 'text',
-      required: true,
-    },
     {
       name: 'title',
       label: 'Title',

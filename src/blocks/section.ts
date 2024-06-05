@@ -8,13 +8,8 @@ export const Section: Block = {
     singular: 'Section',
     plural: 'Sections',
   },
+  interfaceName: 'Section',
   fields: [
-    {
-      name: 'internalName',
-      label: 'Internal name',
-      type: 'text',
-      required: true,
-    },
     {
       name: 'title',
       label: 'Title',
