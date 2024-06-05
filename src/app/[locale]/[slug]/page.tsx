@@ -2,10 +2,11 @@ import React from 'react'
 import { notFound } from 'next/navigation'
 import { Blocks } from '@/components/payload/blocks'
 import { getPayload } from '@/client/payload'
+import { type Locale } from "../../../i18n-config";
 
 type PageProps = {
   params: {
-    locale: string,
+    locale: Locale,
     slug: string
   }
 }
@@ -21,7 +22,7 @@ export default async function Page({ params: { slug, locale } }: PageProps) {
       },
     },
     limit: 1,
-    locale,
+    locale: locale as any,
   })
 
   if (!data || data.docs.length === 0) {

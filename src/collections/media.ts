@@ -6,7 +6,6 @@ export const Media: CollectionConfig = {
     singular: 'Media',
     plural: 'Media',
   },
-
   fields: [
     {
       name: 'alt',
