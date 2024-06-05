@@ -15,12 +15,14 @@ export const Section: Block = {
       label: 'Title',
       type: 'text',
       required: true,
+      localized: true,
     },
     {
       name: 'description',
       label: 'Description',
       type: 'text',
       required: true,
+      localized: true,
     },
     {
       name: 'ctaButton',

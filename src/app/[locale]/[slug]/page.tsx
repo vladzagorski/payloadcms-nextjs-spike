@@ -5,11 +5,12 @@ import { getPayload } from '@/client/payload'
 
 type PageProps = {
   params: {
+    locale: string,
     slug: string
   }
 }
 
-export default async function Page({ params: { slug } }: PageProps) {
+export default async function Page({ params: { slug, locale } }: PageProps) {
   const payload = await getPayload()
 
   const data = await payload.find({
@@ -20,6 +21,7 @@ export default async function Page({ params: { slug } }: PageProps) {
       },
     },
     limit: 1,
+    locale,
   })
 
   if (!data || data.docs.length === 0) {

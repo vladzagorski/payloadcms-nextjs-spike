@@ -4,21 +4,27 @@ import { cn } from '@/lib/utils'
 import { Inter as FontSans } from 'next/font/google'
 import React from 'react'
 import Link from 'next/link'
+import { i18n, type Locale } from "../../../i18n-config";
+
+import '../../globals.css'
 
 type LayoutProps = {
-  children: ReactNode
+  children: ReactNode,
+  params: { locale: Locale };
 }
-
-import './globals.css'
 
 const fontSans = FontSans({
   subsets: ['latin'],
   variable: '--font-sans',
 })
 
-const Layout = ({ children }: LayoutProps) => {
+export async function generateStaticParams() {
+  return i18n.locales.map((locale) => ({ locale }));
+}
+
+const Layout = ({ children, params }: LayoutProps) => {
   return (
-    <html lang="en">
+    <html lang={params.locale}>
       <body className={cn('min-h-screen bg-background font-sans antialiased', fontSans.variable)}>
         <nav className="sticky top-0 bg-white">
           <ul className="flex gap-x-6 border p-3">

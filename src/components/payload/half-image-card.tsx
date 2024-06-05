@@ -30,9 +30,9 @@ export function HalfImageCard({
             'justify-end': imagePosition === 'Right',
           })}
         >
-          {image && <Image width={image.width} height={image.height} src={image.url} />}
+          {image && <Image width={image.width} height={image.height} src={image.url} alt={image.alt ?? ''} />}
         </div>
-        <div className="flex-1">
+        <div className="flex-1 text-left">
           <CardHeader>
             <CardTitle className="text-5xl font-bold">{title}</CardTitle>
             <CardDescription className="text-lg">{description}</CardDescription>

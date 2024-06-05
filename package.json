@@ -14,6 +14,7 @@
     "start": "cross-env NODE_OPTIONS=--no-deprecation next start"
   },
   "dependencies": {
+    "@formatjs/intl-localematcher": "^0.5.4",
     "@payloadcms/db-postgres": "beta",
     "@payloadcms/next": "beta",
     "@payloadcms/plugin-cloud": "beta",
@@ -25,6 +26,7 @@
     "cross-env": "^7.0.3",
     "graphql": "^16.8.1",
     "lucide-react": "^0.383.0",
+    "negotiator": "^0.6.3",
     "next": "14.3.0-canary.68",
     "payload": "beta",
     "react": "^18.3.1",
